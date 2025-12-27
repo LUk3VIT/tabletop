@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace; /* Fonte com estilo retrô */
+}
+
+body {
+    background-color: #0d0d0d;
+    background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('img/background_dungeon.png'); /* Se tiver um fundo */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.game-logo {
+    color: #ff4d4d;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 0px #4d0000;
+}
+
+.auth-box {
+    background: #1a1a1a;
+    padding: 40px;
+    border: 3px solid #ff4d4d;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+}
+
+.auth-box h2 {
+    margin-bottom: 25px;
+    color: #ff4d4d;
+    position: relative;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #aaa;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    border: 1px solid #444;
+    color: #ff4d4d;
+    outline: none;
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    border-color: #ff4d4d;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+.btn-primary:hover {
+    background: #b33636;
+    transform: translateY(-2px);
+}
+
+.hidden { display: none; }
+
+a { color: #ff4d4d; text-decoration: none; font-weight: bold; }
+a:hover { text-decoration: underline; }
+
+.close-btn {
+    position: absolute; /* Fixa o botão em um ponto específico */
+    top: 10px;          /* Distância do topo */
+    right: 15px;        /* Distância da direita */
+    font-size: 2rem;
+    color: #ff4d4d;
+    text-decoration: none;
+}

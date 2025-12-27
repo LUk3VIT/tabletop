@@ -1,15 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabletop</title>
+    <title>Dungeon Quest | O Desafio Final</title>
+    <link rel="stylesheet" href="public/css/Style.css">
 </head>
 <body>
-    
-<h1>Front End Rodando</h1>
 
-<script type="module" src="./public/js/main.ts"></script>
+    <header>
+        <div class="logo">Dungeon Quest</div>
+        <nav>
+            <div class="menu-links">
+                <a href="#personagens">Heróis</a>
+                <a href="#bestiario">Monstros</a>
+                <a href="#tutorial">Como Jogar</a>
+            </div>
+            <div class="auth-nav">
+                <a href="pag/loginCadastro.html" class="login-link">Login</a>
+                <a href="pag/loginCadastro.html" class="register-btn">Cadastrar</a>
+            </div>
+        </nav>
+    </header>
 
+    <section class="hero-banner">
+        <h1>Explore Masmorras Perigosas</h1>
+        <p>Crie seu herói, derrote monstros e conquiste tesouros.</p>
+        <a href="#" class="cta-button">JOGAR AGORA</a>
+    </section>
+
+    <section id="personagens" class="hero-selection">
+        <div class="info">
+            <h2>Escolha sua Classe</h2>
+            <p>Selecione o gênero e navegue pelas classes disponíveis para sua jornada.</p>
+            
+            <div class="gender-selector">
+                <button onclick="changeGender('m')" id="btn-m" class="active">Masculino</button>
+                <button onclick="changeGender('f')" id="btn-f">Feminino</button>
+            </div>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                </div>
+            <div class="carousel-controls">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="bestiario" class="monsters-section">
+        <div class="monsters-container">
+            <div class="monsters-grid">
+                <div class="monster-card">
+                    <img src="/public/img/monstros/vermes/RatoEsquelético.png" alt="Rato Esquelético">
+                    <span>Rato Esquelético</span>
+                </div>
+                <div class="monster-card">
+                    <img src="/public/img/monstros/minions/zumbi.png" alt="Zumbi">
+                    <span>Zumbi</span>
+                </div>
+                <div class="monster-card">
+                    <img src="/public/img/monstros/minions/Goblin.png" alt="Goblin">
+                    <span>Goblin</span>
+                </div>
+                <div class="monster-card">
+                    <img src="/public/img/monstros/chefes/SrDoCaos.png" alt="Senhor do Caos">
+                    <span>Sr. do Caos</span>
+                </div>
+            </div>
+
+            <div class="monsters-info">
+                <h2>O que você vai enfrentar</h2>
+                <p>As masmorras estão infestadas de criaturas sombrias. Desde pragas rastejantes como o <strong>Rato Esquelético</strong> até o temível <strong>Senhor do Caos</strong>.</p>
+                <ul>
+                    <li><strong>Inimigos Comuns:</strong> Ratos e Zumbis vagam pelos corredores.</li>
+                    <li><strong>Emboscadas:</strong> Goblins sorrateiros esperam por aventureiros descuidados.</li>
+                    <li><strong>O Desafio Final:</strong> Derrote Chefes para conquistar a masmorra.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Dungeon Quest - Pixel Adventure
+    </footer>
+
+    <script src="public/js/index.js"></script>
 </body>
 </html>

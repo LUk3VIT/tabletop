@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungeon Quest - Acesso</title>
+    <link rel="stylesheet" href="../public/css/loginCadastro.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <h1 class="game-logo">DUNGEON QUEST</h1>
+
+        <div id="login-form" class="auth-box">
+            <a href="../index.html" class="close-btn" title="Voltar ao início">&times;</a>
+            
+            <h2>ENTRAR</h2>
+            <div class="input-group">
+                <label>ID de Login</label>
+                <input type="text" id="login-id" placeholder="Digite seu ID">
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="login-pass" placeholder="********">
+            </div>
+            <button class="btn-primary" onclick="handleLogin()">INICIAR JORNADA</button>
+            <p>Ainda não tem conta? <a href="#" onclick="toggleAuth()">Cadastre-se</a></p>
+        </div>
+
+        <div id="register-form" class="auth-box hidden">
+            <a href="../index.html" class="close-btn" title="Voltar ao início">&times;</a>
+            
+            <h2>CRIAR CONTA</h2>
+            <div class="input-group">
+                <label>Nome do Personagem</label>
+                <input type="text" id="reg-username" placeholder="Ex: ArqueiroLendario">
+            </div>
+            <div class="input-group">
+                <label>ID de Login</label>
+                <input type="text" id="reg-id" placeholder="Ex: player_123">
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="reg-pass" placeholder="********">
+            </div>
+            <button class="btn-primary" onclick="handleRegister()">CRIAR PERSONAGEM</button>
+            <p>Já possui conta? <a href="#" onclick="toggleAuth()">Voltar ao Login</a></p>
+        </div>
+    </div>
+
+    <script src="../public/js/loginCadastro.js"></script>
+</body>
+</html>
