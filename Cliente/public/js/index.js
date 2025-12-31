@@ -8,7 +8,7 @@ const heroesData = {
     'f': [
         { name: "Guerreira", img: "../img/personagens/femin/Guerreira.png" },
         { name: "Maga", img: "../img/personagens/femin/Maga.png" },
-        { name: "Ladina", img: "../img/personagens/femin/ladina.png" }
+        { name: "Ladina", img: "../img/personagens/femin/Ladina.png" }
     ]
 };
 
