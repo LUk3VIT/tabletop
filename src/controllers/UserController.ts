@@ -1,60 +1,51 @@
 import { Request, Response } from "express";
-import { emitWarning } from "node:process";
+import { UserService } from "../services/UserService";
 
-interface User {
-    id: number;
-    nomePersonagen: string;
-    nomeLogin: string;
-    senha: string;
-}
 
 export class UserController {
-    private users: User[] = [];
-    private idConter = 1
+    private userService: UserService;
 
-    login(req: Request, res: Response): Response {
-        const {nomeLogin, senha} = req.body;
-        const user = this.users.find(u=> u.nomeLogin === nomeLogin);
+    constructor() {
+        this.userService = new UserService();
+    }
 
-        if (!user){
-            return res.status(401).json({message: "Login ou senha Incorretos"})
-        } else {
-            if(user.senha !== senha){
-                return res.status(401).json({ message: "Login ou senha Incorretos"})
-            }else{
-                return res.status(200).json({
-                    message: "Login Realizado com sucesso",
-                    user: {
-                        id: user.id,
-                        nomePersonagem: user.nomePersonagen
-                    } 
-                })
+     async login(req: Request, res: Response): Promise<Response> {
+        try {
+            const { nomeLogin, senha } = req.body;
+
+            if (!nomeLogin || !senha){
+                return res.status(400).json({ message: 'Email e senha são obrigatorios'});
             }
+
+            const result = await this.userService.login(nomeLogin, senha)
+            return res.status(201).json(result);
+        } catch (error: any) {
+
+            if (error.message === 'Login ou senha Incorretos') {
+                return res.status(401).json({ message: error.message });
+            }
+
+            return res.status(500).json({ error: 'Erro interno do servidor' });
         }
     }
 
-    create(req: Request, res: Response): Response{
-        const {nomePersonagen, nomeLogin, senha} = req.body;
-        const newUser: User = { id: this.idConter++, nomePersonagen, nomeLogin, senha}
-        this.users.push(newUser);
-        return res.status(201).json(newUser);
-    }
+    async create (req: Request, res: Response): Promise<Response>{
+        try{
+            const {nomePersonagem, nomeLogin, senha} = req.body;
 
-    update(req: Request, res: Response): Response {
-        const id = Number(req.params.id);
-        const { nomePersonagen, nomeLogin, senha} = req.body;
-        const user = this.users.find(u => u.id === id)
-        if (!user) return res.status(404).json({ message: "Usuario não encontrado"});
+            if (!nomePersonagem || !nomeLogin || !senha ){
+                return res.status(400).json({ message: 'Todos os campo são obrigatorios'});
+            }
 
-        user.nomePersonagen = nomePersonagen ?? user.nomePersonagen;
-        user.nomeLogin = nomeLogin ?? user.nomeLogin;
-        user.senha = senha ?? user.senha
-        return res.json(user);
+            const result = await this.userService.create({nomePersonagem, nomeLogin, senha})
+            return res.status(201).json(result);
+        } catch (error: any) {
+            if (error.message === 'Nome Login ja existe'){
+                return res.status(401).json({ message: error.message });
+            }
+            return res.status(500).json({ error: 'Erro interno do servidor' });
+        }
     }
+    
 
-    delete(req: Request, res: Response): Response {
-        const id = Number(req.params.id);
-        this.users = this.users.filter(u => u.id !== id)
-        return res.status(204).send();
-    }
 }

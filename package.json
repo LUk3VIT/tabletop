@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:backend": "ts-node src/Server.ts", 
+    "start:backend": "ts-node src/Server.ts",
     "dev:frontend": "vite",
     "dev": "npm run start:backend & npm run dev:frontend"
   },
@@ -21,11 +21,14 @@
   },
   "homepage": "https://github.com/LUk3VIT/tabletop#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.2",
+    "sequelize-cli": "^6.6.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.0"
