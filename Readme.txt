@@ -1,4 +1,4 @@
-## Dungeon Quest: The Conquest (Tabletop)
+##Dungeon Quest: The Conquest (Tabletop)
 
 ## Sobre o Projeto
 **Dungeon Quest** é um jogo de exploração de masmorras (*Dungeon Crawler*) com foco em progressão tática e conquista. O jogador assume o papel de um comandante que deve gerenciar sua conta e formar grupos estratégicos de heróis para enfrentar os perigos das profundezas.
