@@ -14,7 +14,7 @@ export class UserController {
             const { nomeLogin, senha } = req.body;
 
             if (!nomeLogin || !senha){
-                return res.status(400).json({ message: 'Email e senha são obrigatorios'});
+                return res.status(400).json({ message: 'Nome Login e senha são obrigatorios'});
             }
 
             const result = await this.userService.login(nomeLogin, senha)
@@ -31,7 +31,7 @@ export class UserController {
 
     async create (req: Request, res: Response): Promise<Response>{
         try{
-            const {nomePersonagem, nomeLogin, senha} = req.body;
+            const { nomePersonagem, nomeLogin, senha } = req.body;
 
             if (!nomePersonagem || !nomeLogin || !senha ){
                 return res.status(400).json({ message: 'Todos os campo são obrigatorios'});
@@ -44,6 +44,25 @@ export class UserController {
                 return res.status(401).json({ message: error.message });
             }
             return res.status(500).json({ error: 'Erro interno do servidor' });
+        }
+    }
+
+    async update (req: Request, res: Response): Promise <Response>{
+        try{
+            const {nomeLogin} = req.params;
+            const {nomePersonagem, senha } = req.body;
+
+            if (!nomePersonagem || !senha ){
+                return res.status(400).json({ message: 'Todos os campo são obrigatorios'});
+            }
+
+            const userUp = await this.userService.update(nomeLogin, {nomePersonagem, senha});
+            return res.status(201).json(userUp);
+        } catch (error: any){
+            if (error.message === 'user não encontrado'){
+                return res.status(404).json({error: error.message});
+            }
+            return res.status(500).json({error: 'Erro interno do servidor'});
         }
     }
     

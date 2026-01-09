@@ -12,14 +12,14 @@ export class UserRepositorio {
     }
 
     async getNomeLogin(nomeLogin:string): Promise<User | null>{
-        return await User.findOne({where: { nomeLogin: nomeLogin }});
+        return await User.findOne({where: {nomeLogin}})
     }
 
     async create(userData: Omit<UserAttributes, 'id'>): Promise<User>{
         return await User.create(userData);
     }
 
-    async update (nomeLogin: string, userData: Partial<UserAttributes>): Promise<User | null> {
+    async update (nomeLogin: string, userData:Partial<UserAttributes>): Promise<User | null> {
         const user = await this.getNomeLogin(nomeLogin);
         if (!user) return null;
 

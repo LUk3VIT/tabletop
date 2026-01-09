@@ -27,7 +27,8 @@ User.init({
     },
     nomeLogin: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     senha: {
         type: DataTypes.STRING,

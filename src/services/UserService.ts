@@ -27,4 +27,14 @@ export class UserService {
 
         return await this.userRepositorio.create(userData);
     }
+
+    async update (nomeLogin: string,userData: Partial<UserAttributes>){
+        const upUser = await this.userRepositorio.update(nomeLogin, userData);
+
+        if(!upUser){
+            throw new Error ('user não encontrado');
+        }
+
+        return upUser;
+    }
 }
