@@ -66,5 +66,8 @@ export class UserController {
         }
     }
     
+    async delete (req: Request, res: Response): Promise <Response>{
+        
+    }
 
 }

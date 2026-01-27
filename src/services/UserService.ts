@@ -37,4 +37,9 @@ export class UserService {
 
         return upUser;
     }
+
+    async delete (nomeLogin: string){
+        const user = await this.userRepositorio.delete(nomeLogin);
+        return user
+    }
 }
